@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Payment on Delivery - BERVIC-STORE</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #f8f8f8;
+      color: #333;
+    }
+    .container {
+      max-width: 1000px;
+      margin: 30px auto;
+      padding: 20px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 25px;
+      color: #ff6600;
+    }
+    .checkout-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 20px;
+    }
+    .cart-summary h2,
+    .order-summary h2 {
+      margin-bottom: 15px;
+      color: #ff6600;
+    }
+    .cart-item {
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid #eee;
+      padding: 15px 0;
+    }
+    .cart-item img {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-right: 15px;
+    }
+    .cart-item-details h3 {
+      margin: 0;
+      font-size: 18px;
+    }
+    .cart-item-details p {
+      margin: 5px 0;
+      font-size: 14px;
+      color: #555;
+    }
+    .price {
+      color: #ff6600;
+      font-weight: bold;
+    }
+    form label {
+      display: block;
+      margin-top: 12px;
+      font-weight: bold;
+    }
+    form input, form select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+    .order-summary {
+      background: #f9f9f9;
+      padding: 15px;
+      border-radius: 10px;
+    }
+    .summary-item {
+      display: flex;
+      justify-content: space-between;
+      margin: 10px 0;
+    }
+    .total {
+      font-weight: bold;
+      font-size: 18px;
+    }
+    .btn {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      margin-top: 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      background: #ff6600;
+      color: white;
+      transition: 0.3s;
+    }
+    .btn:hover {
+      opacity: 0.9;
+    }
+    @media(max-width: 800px){
+      .checkout-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Payment on Delivery</h1>
+  <div class="checkout-grid">
+
+    <!-- Left: Cart + Shipping Form -->
+    <div class="cart-summary">
+      <h2>Your Cart</h2>
+      <div id="cart-items"></div>
+
+      <form id="shipping-form">
+        <h2>Shipping Information</h2>
+        <label for="fullname">Full Name</label>
+        <input id="fullname" type="text" placeholder="Enter your full name" required>
+
+        <label for="email">Email</label>
+        <input id="email" type="email" placeholder="Enter your email" required>
+
+        <label for="phone">Phone</label>
+        <input id="phone" type="tel" placeholder="Enter your phone number" required>
+
+        <label for="address1">Street Address</label>
+        <input id="address1" type="text" placeholder="Street Address" required>
+
+        <label for="city">City</label>
+        <input id="city" type="text" placeholder="City" required>
+
+        <label for="country">Country</label>
+        <select id="country" required>
+          <option value="">Select your country</option>
+          <option value="nigeria">Nigeria</option>
+          <option value="ghana">Ghana</option>
+          <option value="uk">United Kingdom</option>
+          <option value="us">United States</option>
+        </select>
+
+        <h2>Payment Method</h2>
+        <label><input type="radio" name="payment" checked required> Cash on Delivery</label>
+      </form>
+    </div>
+
+    <!-- Right: Order Summary -->
+    <div class="order-summary">
+      <h2>Order Summary</h2>
+      <div class="summary-item">
+        <span>Subtotal</span>
+        <span id="subtotal">₦0.00</span>
+      </div>
+      <div class="summary-item">
+        <span>Shipping</span>
+        <span>Free</span>
+      </div>
+      <div class="summary-item total">
+        <span>Total</span>
+        <span id="total">₦0.00</span>
+      </div>
+      <button class="btn" id="place-order">Place Order</button>
+    </div>
+
+  </div>
+</div>
+<script>
+const cartItemsEl = document.getElementById('cart-items');
+const subtotalEl = document.getElementById('subtotal');
+const totalEl = document.getElementById('total');
+
+// Load cart from localStorage
+let cart = JSON.parse(localStorage.getItem('cart')) || [];
+function render(list){
+  productsEl.innerHTML = '';
+  if(list.length === 0){
+    productsEl.innerHTML = '<div style="grid-column:1/-1;color:var(--muted)">No products found.</div>';
+    return;
+  }
+  list.forEach(p=>{
+    const card = document.createElement('article');
+    card.className = 'card';
+    card.innerHTML = `
+      <img src="${p.images?.[0] || './images/fallback.jpg'}" alt="${p.title}">
+      <div class="title">${p.title}</div>
+      <div class="meta">${p.color} • ${p.vendor}</div>
+      <div><span class="price">${p.currency}${formatPrice(p.price)}</span>
+      <span class="old">${p.currency}${formatPrice(p.oldPrice)}</span></div>
+      <div class="actions">
+        <button class="btn add">Add to cart</button>
+        <button class="btn view">View</button>
+      </div>`;
+    card.querySelector('.add').onclick = () => addToCart(p);
+    card.querySelector('.view').onclick = () => openModal(p);
+    productsEl.appendChild(card);
+  });
+}
+
+
+// Place order
+document.getElementById('place-order').addEventListener('click', (e)=>{
+  e.preventDefault();
+
+  if(cart.length === 0){
+    alert("Your cart is empty!");
+    return;
+  }
+
+  const form = document.getElementById('shipping-form');
+  if(!form.checkValidity()){
+    alert("Please fill in all shipping details.");
+    return;
+  }
+
+  alert("✅ Your order has been placed! You will pay on delivery.");
+  localStorage.removeItem('cart'); // clear cart
+  window.location.href = 'index.html';
+});
+</script>
+
+
+</body>
+</html>
+

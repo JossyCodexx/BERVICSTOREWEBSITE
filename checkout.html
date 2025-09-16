@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; background:#f5f5f5; }
+    h1 { color:#333; }
+    .cart-item { display:flex; align-items:center; gap:15px; background:#fff; padding:10px; margin:10px 0; border-radius:6px; }
+    .cart-item img { width:80px; border-radius:6px; }
+    .info { flex:1; }
+    .price { font-weight:bold; }
+    .remove { color:red; cursor:pointer; }
+    .total { margin-top:20px; font-size:18px; font-weight:bold; }
+    .btn { display:inline-block; margin-top:20px; padding:10px 20px; background:#007bff; color:#fff; border:none; border-radius:5px; text-decoration:none; }
+    .btn:hover { background:#0056b3; }
+  </style>
+</head>
+<body>
+  <h1>Your Checkout</h1>
+  <div id="cart-container"></div>
+  <div class="total" id="cart-total">Total: $0.00</div>
+  <a href="payment.html" class="btn">Proceed to Payment</a>
+
+  <script>
+    function getCart() {
+      return JSON.parse(localStorage.getItem("cart")) || [];
+    }
+    function saveCart(cart) {
+      localStorage.setItem("cart", JSON.stringify(cart));
+    }
+
+function renderCart() {
+  cartItemsEl.innerHTML = '';
+  let subtotal = 0;
+
+  if(cart.length === 0){
+    cartItemsEl.innerHTML = '<p style="color:#555">Your cart is empty.</p>';
+    subtotalEl.textContent = `₦0.00`;
+    totalEl.textContent = `₦0.00`;
+    return;
+  }
+
+  cart.forEach(item => {
+    const div = document.createElement('div');
+    div.className = 'cart-item';
+    div.innerHTML = `
+      <img src="${item.images?.[0] || item.image || './images/fallback.jpg'}" alt="${item.title}">
+      <div class="cart-item-details">
+        <h3>${item.title}</h3>
+        <p>Color: ${item.color} | Size: ${item.size || 'N/A'}</p>
+        <p>Quantity: ${item.quantity}</p>
+        <p class="price">₦${(item.price * item.quantity).toFixed(2)}</p>
+      </div>
+    `;
+    cartItemsEl.appendChild(div);
+    subtotal += item.price * item.quantity;
+  });
+
+  subtotalEl.textContent = `₦${subtotal.toFixed(2)}`;
+  totalEl.textContent = `₦${subtotal.toFixed(2)}`;
+}
+
+
+
+
+
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us - Shopper</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="./CSS/aboutus.css">
+  <style>
+    /* Reset */
+    
+
+
+
+    /* Hero Section */
+    .hero {
+      width: 100%;
+      height: 100vh;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-slider {
+      width: 100%;
+      height: 100%;
+      position: relative;
+    }
+    .slide {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      opacity: 0;
+      animation: slideAnimation 15s infinite;
+    }
+    .slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .slide:nth-child(1) { animation-delay: 0s; }
+    .slide:nth-child(2) { animation-delay: 5s; }
+    .slide:nth-child(3) { animation-delay: 10s; }
+
+    @keyframes slideAnimation {
+      0% { opacity: 0; }
+      10% { opacity: 1; }
+      30% { opacity: 1; }
+      40% { opacity: 0; }
+      100% { opacity: 0; }
+    }
+
+    /* About Content */
+    .about-section {
+      max-width: 1200px;
+      margin: 60px auto;
+      padding: 0 20px;
+      text-align: center;
+    }
+    .about-section h2 {
+      font-size: 32px;
+      margin-bottom: 20px;
+      color: #ff6b00;
+    }
+    .about-section p {
+      font-size: 18px;
+      line-height: 1.8;
+      color: #555;
+      margin-bottom: 30px;
+    }
+    .about-images {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .about-images img {
+      width: 300px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    /* Footer */
+    footer {
+      background: #333;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+  
+
+  
+      <!-- ================= NAVBAR ================= -->
+<nav class="navbar">
+  <div class="nav-container">
+    <a href="index.html" class="logo">
+      <img src="./images/logo1.png" alt="">
+    </a>
+    <ul class="nav-menu">
+      <li><a href="shop.html">Shop</a></li>
+      <li><a href="men.html">Men</a></li>
+      <li><a href="women.html">Women</a></li>
+      <li><a href="kid.html">Kids</a></li>
+      <li><a href="aboutus.html" class="active">About Us</a></li>
+      <li><a href="contactus.html">Contact Us</a></li>
+
+      <!-- Dropdown Menu for Product -->
+      <li class="dropdown">
+        <a href="product.html" class="dropbtn">Product ▾</a>
+        <ul class="dropdown-content">
+          <li><a href="payment.html">Payment</a></li>
+          <li><a href="checkout.html">Checkout</a></li>
+          <li><a href="card-payment.html">Card-payment</a></li>
+          <li><a href="delivery.html">Delivery</a></li>
+          <li><a href="products.html">Product</a></li>
+        </ul>
+      </li>
+
+      <li><a href="login.html">Login</a></li>  
+       <li ><i class="fas fa-bars"></i></li>  
+    </ul>
+  </div>
+</nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-slider">
+      <div class="slide fade">
+        <img src="./images/about1.jpg" alt="About Us 1">
+      </div>
+      <div class="slide fade">
+        <img src="./images/about2.jpg" alt="About Us 2">
+      </div>
+      <div class="slide fade">
+        <img src="./images/about3.jpg" alt="About Us 3">
+      </div>
+    </div>
+  </section>
+
+
+
+
+<!-- About Section -->
+<section class="about-section">
+  <h2>About BERVIC-STORE</h2>
+  <p>
+    At <strong>BERVIC-STORE</strong>, we believe fashion is for everyone. 
+    Our mission is to bring you high-quality, stylish, and affordable clothing 
+    that matches your lifestyle. Whether it's men, women, or kids’ fashion, 
+    we’ve got you covered with collections that inspire confidence and comfort.
+  </p>
+
+  <div class="about-media">
+    <!-- 6 Image Cards -->
+    <div class="media-card">
+      <img src="./images/team1.jpg" alt="Our Team">
+      <div class="media-info">
+        <h3>Our Team</h3>
+        <p>Meet our passionate team dedicated to bringing you the best products.</p>
+        <a href="https://wa.me/8025034524" target="_blank" class="whatsapp-btn">
+          <i class="fab fa-whatsapp"></i> +234 802 503 4524
+        </a>
+      </div>
+    </div>
+
+    <div class="media-card">
+      <img src="./images/store1.jpg" alt="Our Store">
+      <div class="media-info">
+        <h3>Our Store</h3>
+        <p>Visit our store or browse online for exclusive collections.</p>
+        <a href="https://wa.me/2348025034524" target="_blank" class="whatsapp-btn">
+          <i class="fab fa-whatsapp"></i> +234 802 503 4524
+        </a>
+      </div>
+    </div>
+
+    <div class="media-card">
+      <img src="./images/mission.jpg" alt="Our Mission">
+      <div class="media-info">
+        <h3>Our Mission</h3>
+        <p>Delivering style, quality, and affordability to everyone.</p>
+        <a href="https://wa.me/2348025034524" target="_blank" class="whatsapp-btn">
+          <i class="fab fa-whatsapp"></i> +234 802 503 4524
+        </a>
+      </div>
+    </div>
+
+    <div class="media-card">
+      <img src="./images/team2.jpg" alt="Team Collaboration">
+      <div class="media-info">
+        <h3>Team Collaboration</h3>
+        <p>We work together to ensure quality and customer satisfaction.</p>
+        <a href="https://wa.me/2348025034524" target="_blank" class="whatsapp-btn">
+          <i class="fab fa-whatsapp"></i> +234 802 503 4524
+        </a>
+      </div>
+    </div>
+
+    <div class="media-card">
+      <img src="./images/store2.jpg" alt="Store Interior">
+      <div class="media-info">
+        <h3>Store Interior</h3>
+        <p>Our store is designed to give a seamless shopping experience.</p>
+        <a href="https://wa.me/2348025034524" target="_blank" class="whatsapp-btn">
+          <i class="fab fa-whatsapp"></i> +234 802 503 4524
+        </a>
+      </div>
+    </div>
+
+    <div class="media-card">
+      <img src="./images/mission2.jpg" alt="Sustainability Mission">
+      <div class="media-info">
+        <h3>Sustainability Mission</h3>
+        <p>We focus on eco-friendly materials and practices.</p>
+        <a href="https://wa.me/2348025034524" target="_blank" class="whatsapp-btn">
+          <i class="fab fa-whatsapp"></i> +234 802 503 4524
+        </a>
+      </div>
+    </div>
+
+    <!-- 6 Video Cards -->
+    <div class="media-card">
+      <video controls>
+        <source src="./images/product1.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <div class="media-info">
+        <h3>Women Hairs Collection</h3>
+        <p>Check out our premium hair extensions for women.</p>
+        <a href="https://wa.me/2348025034524" target="_blank" class="whatsapp-btn">
+          <i class="fab fa-whatsapp"></i> +234 802 503 4524
+        </a>
+      </div>
+    </div>
+
+    <div class="media-card">
+      <video controls>
+        <source src="./images/product2.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <div class="media-info">
+        <h3>Women Hairs Collection</h3>
+        <p>High-quality and stylish hair for all occasions.</p>
+        <a href="https://wa.me/2348025034524" target="_blank" class="whatsapp-btn">
+          <i class="fab fa-whatsapp"></i> +234 802 503 4524
+        </a>
+      </div>
+    </div>
+
+    <div class="media-card">
+      <video controls>
+        <source src="./images/product3.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <div class="media-info">
+        <h3>Women Hairs Collection</h3>
+        <p>High-quality and stylish hair for all occasions.</p>
+        <a href="https://wa.me/8025034524" target="_blank" class="whatsapp-btn">
+          <i class="fab fa-whatsapp"></i> +234 802 503 4524
+        </a>
+      </div>
+    </div>
+
+    <div class="media-card">
+      <video controls>
+        <source src="./images/product4.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <div class="media-info">
+        <h3>Women Hairs Collection</h3>
+        <p>High-quality and stylish hair for all occasions.</p>
+        <a href="https://wa.me/2348025034524" target="_blank" class="whatsapp-btn">
+          <i class="fab fa-whatsapp"></i> +234 802 503 4524
+        </a>
+      </div>
+    </div>
+
+    <div class="media-card">
+      <video controls>
+        <source src="./images/product5.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <div class="media-info">
+        <h3>Women Hairs Collection</h3>
+        <p>High-quality and stylish hair for all occasions.</p>
+        <a href="https://wa.me/2348025034524" target="_blank" class="whatsapp-btn">
+          <i class="fab fa-whatsapp"></i> +234 802 503 4524
+        </a>
+      </div>
+    </div>
+
+    <div class="media-card">
+      <video controls>
+        <source src="./images/product6.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <div class="media-info">
+        <h3>Women Hairs Collection</h3>
+        <p>High-quality and stylish hair for all occasions.</p>
+        <a href="https://wa.me/2348025034524" target="_blank" class="whatsapp-btn">
+          <i class="fab fa-whatsapp"></i> +234 802 503 4524
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CSS -->
+<style>
+  .about-section {
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 0 20px;
+    font-family: Arial, sans-serif;
+    color: #333;
+  }
+
+  .about-section h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #ff6600;
+    margin-bottom: 20px;
+  }
+
+  .about-section p {
+    text-align: center;
+    font-size: 1.1rem;
+    margin-bottom: 40px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+  }
+
+  .about-media {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+  }
+
+  .media-card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  .media-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  }
+
+  .media-card img, .media-card video {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+
+  .media-card video {
+    background: #000;
+  }
+
+  .media-info {
+    padding: 15px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .media-info h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: #ff6600;
+  }
+
+  .media-info p {
+    font-size: 0.95rem;
+    margin-bottom: 15px;
+    color: #555;
+  }
+
+  .whatsapp-btn {
+    display: inline-block;
+    text-decoration: none;
+    background: #25D366;
+    color: #fff;
+    padding: 8px 15px;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    text-align: center;
+  }
+
+  .whatsapp-btn i {
+    margin-right: 5px;
+  }
+
+  @media(max-width:768px){
+    .about-section h2 { font-size: 2rem; }
+    .media-card img, .media-card video { height: 180px; }
+  }
+
+  @media(max-width:480px){
+    .about-section h2 { font-size: 1.8rem; }
+    .media-card img, .media-card video { height: 150px; }
+  }
+</style>
+
+
+  <!-- Footer -->
+<footer class="footer" style="background:#333;color:#fff;padding:40px 20px;font-family:Arial,sans-serif">
+  <div class="footer-content" style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:20px;max-width:1200px;margin:auto">
+    
+    <div class="footer-section" style="flex:1;min-width:220px">
+      <h3 style="margin-bottom:12px;color:#ff6600">BERVIC-STORE</h3>
+      <p>Your ultimate destination for Shop Men Women kids’ fashion and more.</p>
+    </div>
+
+    <div class="footer-section" style="flex:1;min-width:220px">
+      <h4 style="margin-bottom:12px;color:#ff6600">Quick Links</h4>
+      <ul style="list-style:none;padding:0">
+        <li><a href="shop.html" style="color:#fff;text-decoration:none">Shop</a></li>
+        <li><a href="aboutus.html" style="color:#fff;text-decoration:none">About Us</a></li>
+        <li><a href="contactus.html" style="color:#fff;text-decoration:none">Contact Us</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-section" style="flex:1;min-width:220px">
+      <h4 style="margin-bottom:12px;color:#ff6600">Follow Us</h4>
+      <div class="social-links" style="display:flex;gap:10px;margin-bottom:12px">
+        <a href="#" style="color:#fff;font-size:18px"><i class="fab fa-facebook"></i></a>
+        <a href="#" style="color:#fff;font-size:18px"><i class="fab fa-twitter"></i></a>
+        <a href="#" style="color:#fff;font-size:18px"><i class="fab fa-instagram"></i></a>
+      </div>
+      <h4 style="margin-bottom:6px;color:#ff6600">Contact Us</h4>
+      <p style="margin:0">
+        WhatsApp: 
+        <a href="https://wa.me/2349012345678" target="_blank" style="color:#25D366;text-decoration:none;font-weight:bold">
+          +234 901 234 5678
+        </a>
+      </p>
+      <p style="margin:0">
+        Email: <a href="mailto:info@bervicstore.com" style="color:#fff;text-decoration:none">info@bervicstore.com</a>
+      </p>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom" style="text-align:center;margin-top:30px;border-top:1px solid #444;padding-top:12px;color:#aaa;font-size:14px">
+    <p>&copy; 2025 BERVIC-STORE E-commerce Store. All rights reserved.</p>
+  </div>
+</footer>
+
+</body>
+</html>

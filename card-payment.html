@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="./CSS/card-payment.css">
+  <title>Card Payment - AutoHub</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+
+    
+
+    .container {
+      max-width: 500px;
+      margin: 40px auto;
+      background: white;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin: 10px 0 5px;
+      font-weight: bold;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 16px;
+    }
+
+    button {
+      width: 100%;
+      padding: 14px;
+      background: #007bff;
+      color: white;
+      font-size: 18px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #0056b3;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      padding: 15px;
+      background: #007bff;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+    
+      <!-- ================= NAVBAR ================= -->
+<nav class="navbar">
+  <div class="nav-container">
+    <a href="index.html" class="logo">
+      <img src="./images/logo1.png" alt="">
+    </a>
+    <ul class="nav-menu">
+      <li><a href="shop.html">Shop</a></li>
+      <li><a href="men.html">Men</a></li>
+      <li><a href="women.html">Women</a></li>
+      <li><a href="kid.html">Kids</a></li>
+      <li><a href="aboutus.html" class="active">About Us</a></li>
+      <li><a href="contactus.html">Contact Us</a></li>
+
+      <!-- Dropdown Menu for Product -->
+      <li class="dropdown">
+        <a href="product.html" class="dropbtn">Product ▾</a>
+        <ul class="dropdown-content">
+          <li><a href="payment.html">Payment</a></li>
+          <li><a href="checkout.html">Checkout</a></li>
+          <li><a href="card-payment.html">Card-payment</a></li>
+          <li><a href="delivery.html">Delivery</a></li>
+          <li><a href="products.html">Product</a></li>
+        </ul>
+      </li>
+
+      <li><a href="login.html">Login</a></li>  
+       <li ><i class="fas fa-bars"></i></li>  
+    </ul>
+  </div>
+</nav>
+  <div class="container">
+    <h2>Enter Card Details</h2>
+    <form onsubmit="return processPayment(event)">
+      <label for="cardName">Cardholder Name</label>
+      <input type="text" id="cardName" placeholder="John Doe" required>
+
+      <label for="cardNumber">Card Number</label>
+      <input type="text" id="cardNumber" placeholder="1234 5678 9012 3456" maxlength="19" required>
+
+      <label for="expiry">Expiry Date</label>
+      <input type="text" id="expiry" placeholder="MM/YY" maxlength="5" required>
+
+      <label for="cvv">CVV</label>
+      <input type="password" id="cvv" placeholder="123" maxlength="4" required>
+
+      <button type="submit">Pay Now</button>
+    </form>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 AutoHub. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    function processPayment(event) {
+      event.preventDefault();
+      alert("✅ Payment processed successfully!");
+      window.location.href = "checkout.html"; // Redirect after success
+    }
+  </script>
+</body>
+</html>

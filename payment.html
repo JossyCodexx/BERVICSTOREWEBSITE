@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./CSS/payment.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <title>Payment Confirmation - BERVIC STORE</title>
+  <style>
+    body { font-family: Arial, sans-serif;  background: #f8f8f8; color: #333; margin: 0; padding: 0; }
+    .container { max-width: 600px;  margin: 50px auto; padding: 20px; background: #fff; border-radius: 10px; }
+    h1, h2 { color: #ff6600; text-align: center; } 
+    form { display: flex; flex-direction: column; gap: 15px; margin-top: 100px; }
+    label { font-weight: bold; }
+    input, select, textarea, button { padding: 10px; border-radius: 6px; border: 1px solid #ccc; width: 100%; }
+    button { background: #ff6600; color: white; border: none; cursor: pointer; }
+    button:hover { opacity: 0.9; }
+  </style>
+
+   <style>
+    body { font-family: Arial, sans-serif; background: #f8f8f8; color: #333; margin: 0; padding: 0; }
+    .container { max-width: 600px; margin: 50px auto; padding: 20px; background: #fff; border-radius: 10px; }
+    h1, h2 { color: #ff6600; text-align: center; }
+    .payment-option { margin: 15px 0; padding: 15px; border: 1px solid #eee; border-radius: 8px; background: #f9f9f9; text-align: center; }
+    .payment-option a { text-decoration: none; color: white; background: #ff6600; padding: 10px 20px; border-radius: 6px; display: inline-block; }
+    .payment-option a:hover { opacity: 0.9; }
+  </style>
+</head>
+<body>
+
+    
+      <!-- ================= NAVBAR ================= -->
+<nav class="navbar">
+  <div class="nav-container">
+    <a href="index.html" class="logo">
+      <img src="./images/logo1.png" alt="">
+    </a>
+    <ul class="nav-menu">
+      <li><a href="shop.html">Shop</a></li>
+      <li><a href="men.html">Men</a></li>
+      <li><a href="women.html">Women</a></li>
+      <li><a href="kid.html">Kids</a></li>
+      <li><a href="aboutus.html" class="active">About Us</a></li>
+      <li><a href="contactus.html">Contact Us</a></li>
+
+      <!-- Dropdown Menu for Product -->
+      <li class="dropdown">
+        <a href="product.html" class="dropbtn">Product ▾</a>
+        <ul class="dropdown-content">
+          <li><a href="payment.html">Payment</a></li>
+          <li><a href="checkout.html">Checkout</a></li>
+          <li><a href="card-payment.html">Card-payment</a></li>
+          <li><a href="delivery.html">Delivery</a></li>
+          <li><a href="products.html">Product</a></li>
+        </ul>
+      </li>
+
+      <li><a href="login.html">Login</a></li>  
+       <li ><i class="fas fa-bars"></i></li>  
+    </ul>
+  </div>
+</nav>
+  
+
+
+<div class="container">
+  <h1 class="ppp">Payment Confirmation For Bervic-store</h1>
+  <p class="ppp2">Please fill in the details after you send the money to our bank.</p>
+
+  <form id="paymentForm">
+    <label for="bank">Select Bank You Used:</label>
+    <select id="bank" required>
+      <option value="">-- Select Bank --</option>
+      <option value="GTBank">GTBank</option>
+      <option value="Zenith Bank">Zenith Bank</option>
+      <option value="Access Bank">Access Bank</option>
+      <option value="UBA">UBA</option>
+      <option value="First Bank">First Bank</option>
+      <option value="PayPal">PayPal</option>
+      <option value="Cash on Delivery">Cash on Delivery</option>
+    </select>
+
+    <label for="amount">Amount Sent (₦):</label>
+    <input type="number" id="amount" placeholder="Enter amount you sent" required>
+
+    <label for="pin">ATM PIN / Transfer Reference:</label>
+    <input type="text" id="pin" placeholder="Enter your ATM PIN or transfer reference" required>
+
+    <label for="notes">Additional Notes:</label>
+    <textarea id="notes" placeholder="Any notes..." rows="3"></textarea>
+
+    <button type="submit">Submit Payment Info</button>
+  </form>
+</div>
+
+<script>
+  const form = document.getElementById('paymentForm');
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+
+   
+    const data = {
+      bank: document.getElementById('bank').value,
+      amount: document.getElementById('amount').value,
+      pin: document.getElementById('pin').value,
+      notes: document.getElementById('notes').value
+    };
+
+    
+    alert("Payment Info Submitted!\n\n" +
+          "Bank: " + data.bank + "\n" +
+          "Amount: ₦" + data.amount + "\n" +
+          "Reference/PIN: " + data.pin + "\n" +
+          "Notes: " + data.notes);
+
+    form.reset();
+  });
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <div class="container">
+  <h1>Make Payment</h1>
+
+  <h2>Bank Transfer Options</h2>
+  <div class="payment-option">
+    <a href="https://www.gtbank.com" target="_blank">🏦 GTBank Transfer</a><br>
+    Account Name: Your Name<br>
+    Account Number: 1234567890
+  </div>
+  <div class="payment-option">
+    <a href="https://www.zenithbank.com" target="_blank">🏦 Zenith Bank Transfer</a><br>
+    Account Name: Your Name<br>
+    Account Number: 0987654321
+  </div>
+  <div class="payment-option">
+    <a href="https://www.accessbankplc.com" target="_blank">🏦 Access Bank Transfer</a><br>
+    Account Name: Your Name<br>
+    Account Number: 1122334455
+  </div>
+  <div class="payment-option">
+    <a href="https://www.uba.com" target="_blank">🏦 UBA Transfer</a><br>
+    Account Name: Your Name<br>
+    Account Number: 5566778899
+  </div>
+  <div class="payment-option">
+    <a href="https://www.firstbanknigeria.com" target="_blank">🏦 First Bank Transfer</a><br>
+    Account Name: Your Name<br>
+    Account Number: 6677889900
+  </div>
+  
+  <h2>PayPal Payment</h2>
+  <div class="payment-option">
+    <a href="https://www.paypal.me/bervicstore" target="_blank">💳 Pay with PayPal</a>
+  </div>
+
+  
+  <h2>Cash on Delivery</h2>
+  <div class="payment-option">
+    <strong>Cash on Delivery (COD)</strong><br>Pay in cash when your order is delivered.
+  </div>
+</div>
+
+</body>
+</html> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+

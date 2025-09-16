@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Shop - Products</title>
+  <link rel="stylesheet" href="./CSS/product details.css">
+  <style>
+    :root { --accent:#0b78d1; --card-bg:#fff; --muted:#6b7280 }
+    body { font-family:Inter,system-ui,Arial,Helvetica,sans-serif; margin:0; background:#f3f4f6; color:#111 }
+    .container { max-width:1200px; margin:32px auto; padding:0 16px }
+    header { display:flex; align-items:center; justify-content:space-between; margin-bottom:18px; flex-wrap:wrap; gap:12px }
+    .tabs { display:flex; gap:8px }
+    .tab { padding:8px 14px; border-radius:8px; background:#fff; border:1px solid #e5e7eb; cursor:pointer }
+    .tab.active { background:var(--accent); color:#fff; border-color:var(--accent) }
+    .controls { display:flex; gap:12px; align-items:center }
+    .search { padding:8px 12px; border-radius:8px; border:1px solid #e5e7eb; background:#fff }
+    .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:16px }
+    .card { background:var(--card-bg); border-radius:12px; padding:12px; border:1px solid #e6e7eb; display:flex; flex-direction:column; gap:8px }
+    .card img { width:100%; height:160px; object-fit:cover; border-radius:8px }
+    .title { font-weight:600; font-size:14px }
+    .meta { font-size:13px; color:var(--muted) }
+    .price { font-weight:700 }
+    .old { color:var(--muted); text-decoration:line-through; font-size:13px; margin-left:8px }
+    .actions { display:flex; gap:8px; margin-top:auto }
+    .btn { flex:1; padding:8px 10px; border-radius:8px; border:none; cursor:pointer; text-align:center; text-decoration:none }
+    .btn.add { background:var(--accent); color:#fff }
+    .btn.view { background:#fff; border:1px solid #e5e7eb }
+
+    
+    /* navbar */
+    .navbar { background:#fff; border-bottom:1px solid #e5e7eb; padding:10px 20px }
+    .nav-container { display:flex; justify-content:space-between; align-items:center }
+    .nav-menu { list-style:none; display:flex; gap:15px; margin:0; padding:0; align-items:center }
+    .nav-menu a { text-decoration:none; color:#111; font-weight:500 }
+    .nav-menu a.active { color:var(--accent) }
+
+    /* dropdown */
+    .dropdown { position:relative }
+    .dropdown-content { display:none; position:absolute; top:100%; left:0; background:#fff; min-width:160px; box-shadow:0 2px 8px rgba(0,0,0,0.15); border-radius:8px; z-index:100 }
+    .dropdown-content li { list-style:none }
+    .dropdown-content a { display:block; padding:10px; color:#111; text-decoration:none }
+    .dropdown-content a:hover { background:#f3f4f6 }
+    .dropdown:hover .dropdown-content { display:block }
+
+    /* modal */
+    .modal-backdrop { position:fixed; inset:0; background:rgba(0,0,0,0.45); display:none; align-items:center; justify-content:center; padding:20px; z-index:50 }
+    .modal { background:#fff; border-radius:12px; max-width:900px; width:100%; padding:20px; display:flex; gap:16px; position:relative }
+    .modal .left { flex:1; position:relative }
+    .modal .right { flex:1 }
+    .close { background:#eee; border:none; padding:6px 10px; border-radius:8px; cursor:pointer }
+    @media(max-width:800px){ .modal{flex-direction:column} }
+    footer { margin-top:20px; color:var(--muted); font-size:13px; text-align:center }
+    .cart-msg { position:fixed; bottom:20px; right:20px; background:var(--accent); color:#fff; padding:12px 16px; border-radius:8px; display:none; z-index:100 }
+
+    /* slider */
+    .media-container { width:100%; height:360px; position:relative; overflow:hidden; border-radius:8px }
+    .media-container img,.media-container video { width:100%; height:100%; object-fit:cover; display:none }
+    .media-container img.active,.media-container video.active { display:block }
+    .nav-btn { position:absolute; top:50%; transform:translateY(-50%); background:rgba(0,0,0,0.5); color:#fff; border:none; padding:8px 12px; border-radius:50%; cursor:pointer }
+    .prev { left:10px }
+    .next { right:10px }
+  </style>
+</head>
+<body>
+  
+<!-- Navbar -->
+<nav class="navbar">
+  <div class="nav-container">
+    <a href="index.html" class="logo">
+      <img src="./images/logo2.jpg" alt="">
+    </a>
+    <ul class="nav-menu">
+      <li><a href="shop.html">Shop</a></li>
+      <li><a href="men.html">Men</a></li>
+      <li><a href="women.html">Women</a></li>
+      <li><a href="kid.html">Kids</a></li>
+      <li><a href="aboutus.html" class="active">About Us</a></li>
+      <li><a href="contactus.html">Contact Us</a></li>
+
+      <!-- Dropdown Menu for Product -->
+      <li class="dropdown">
+        <a href="product.html" class="dropbtn">Product ▾</a>
+        <ul class="dropdown-content">
+          <li><a href="payment.html">Payment</a></li>
+          <li><a href="checkout.html">Checkout</a></li>
+          <li><a href="card-payment.html">Card-payment</a></li>
+          <li><a href="delivery.html">Delivery</a></li>
+          <li><a href="products.html">Product</a></li>
+        </ul>
+      </li>
+
+      <li><a href="login.html">Login</a></li>    
+      <li>
+        <a href="cart.html" class="nav-link cart-link" id="cart-link">
+          <i class="fas fa-shopping-cart"></i> Cart (<span id="cart-count">0</span>)
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container">
+  <header>
+    <div>
+      <h1>Shop — Products</h1>
+      <div style="color:var(--muted);font-size:14px">All categories: Men • Women • Kids</div>
+    </div>
+    <div class="controls">
+      <input id="search" class="search" placeholder="Search products..." />
+      <div class="tabs" role="tablist">
+        <button class="tab active" data-cat="all">All</button>
+        <button class="tab" data-cat="men">Men</button>
+        <button class="tab" data-cat="women">Women</button>
+        <button class="tab" data-cat="kids">Kids</button>
+      </div>
+    </div>
+  </header>
+
+  <section id="products" class="grid" aria-live="polite"></section>
+
+  <footer>Free worldwide shipping • Free returns • Sustainably made • Secure payments</footer>
+</div>
+
+<!-- modal -->
+<div id="modal" class="modal-backdrop" role="dialog" aria-modal="true">
+  <div class="modal">
+    <div class="left">
+      <div class="media-container" id="media-container"></div>
+      <button class="nav-btn prev" onclick="prevMedia()">❮</button>
+      <button class="nav-btn next" onclick="nextMedia()">❯</button>
+    </div>
+    <div class="right">
+      <h2 id="modal-title"></h2>
+      <div style="margin:8px 0"><span id="modal-price" class="price"></span><span id="modal-old" class="old"></span></div>
+      <div id="modal-meta" class="meta"></div>
+      <p id="modal-desc" style="margin-top:12px;color:#374151"></p>
+      <div style="margin-top:12px;display:flex;gap:8px">
+        <button id="modal-add" class="btn add">Add to cart</button>
+        <a id="modal-buy" class="btn view" href="payment.html">Buy it now</a>
+        <button id="modal-close" class="close">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="cart-msg" class="cart-msg">Added to cart!</div>
+
+
+
+
+
+
+
+<script>
+  // ================= CART SYSTEM =================
+  let cartCount = 0; // always reset on page load
+  const cartCountSpan = document.getElementById("cart-count");
+  cartCountSpan.textContent = cartCount;
+
+  function addToCart(product) {
+    cartCount++;
+    cartCountSpan.textContent = cartCount;
+    showCartMsg();
+  }
+
+  function showCartMsg() {
+    const msg = document.getElementById("cart-msg");
+    msg.style.display = "block";
+    setTimeout(() => (msg.style.display = "none"), 2000);
+  }
+
+  // demo data
+  const menProducts = Array.from({length:20},(_,i)=>({
+    id:'m'+(i+1),title:`Men Sneaker ${i+1}`,category:'men',
+    price:100+i*5,oldPrice:120+i*5,currency:'$',color:'Black',vendor:'mysite',
+    images:[`./images/men${i+1}.jpg`],videos:[]
+  }));
+  const womenProducts = Array.from({length:20},(_,i)=>({
+    id:'w'+(i+1),title:`Women Sneaker ${i+1}`,category:'women',
+    price:200+i*5,oldPrice:250+i*5,currency:'$',color:'Navy',vendor:'mysite',
+    images:[`./images/women${i+1}.jpg`],videos:[]
+  }));
+  const kidsProducts = Array.from({length:20},(_,i)=>({
+    id:'k'+(i+1),title:`Kids Sneaker ${i+1}`,category:'kids',
+    price:80+i*5,oldPrice:100+i*5,currency:'$',color:'White',vendor:'mysite',
+    images:[`./images/kids${i+1}.jpg`],videos:[]
+  }));
+  const allProducts = () => [...menProducts,...womenProducts,...kidsProducts];
+
+  const productsEl=document.getElementById('products');
+  const tabs=Array.from(document.querySelectorAll('.tab'));
+  const searchInput=document.getElementById('search');
+  let currentCategory='all';
+
+  function formatPrice(p){return p?.toLocaleString();}
+  
+  function render(list){
+    productsEl.innerHTML='';
+    if(list.length===0){productsEl.innerHTML='<div style="grid-column:1/-1;color:var(--muted)">No products found.</div>';return}
+    list.forEach(p=>{
+      const card=document.createElement('article');card.className='card';
+      card.innerHTML=`
+        <img src="${p.images[0]||'https://via.placeholder.com/600x400'}" alt="${p.title}">
+        <div class="title">${p.title}</div>
+        <div class="meta">${p.color} • ${p.vendor}</div>
+        <div><span class="price">${p.currency}${formatPrice(p.price)}</span>
+        <span class="old">${p.currency}${formatPrice(p.oldPrice)}</span></div>
+        <div class="actions">
+          <button class="btn add">Add to cart</button>
+          <button class="btn view">View</button>
+        </div>`;
+      card.querySelector('.add').onclick=()=>addToCart(p);
+      card.querySelector('.view').onclick=()=>openModal(p);
+      productsEl.appendChild(card);
+    });
+  }
+
+  function filterAndRender(){
+    const q=searchInput.value.toLowerCase();
+    const source=allProducts();
+    const filtered=source.filter(p=>(currentCategory==='all'||p.category===currentCategory)&&(p.title.toLowerCase().includes(q)||p.vendor.toLowerCase().includes(q)||p.color.toLowerCase().includes(q)));
+    render(filtered);
+  }
+
+  tabs.forEach(t=>t.addEventListener('click',()=>{tabs.forEach(x=>x.classList.remove('active'));t.classList.add('active');currentCategory=t.dataset.cat;filterAndRender();}));
+  searchInput.addEventListener('input',filterAndRender);
+
+  // modal
+  const modal=document.getElementById('modal');
+  const mediaContainer=document.getElementById('media-container');
+  const modalTitle=document.getElementById('modal-title');
+  const modalPrice=document.getElementById('modal-price');
+  const modalOld=document.getElementById('modal-old');
+  const modalMeta=document.getElementById('modal-meta');
+  const modalDesc=document.getElementById('modal-desc');
+  const modalClose=document.getElementById('modal-close');
+  const modalAdd=document.getElementById('modal-add');
+  let currentMediaIndex=0,currentMedia=[];
+
+  function openModal(p){
+    modalTitle.textContent=p.title;
+    modalPrice.textContent=p.currency+formatPrice(p.price);
+    modalOld.textContent=p.currency+formatPrice(p.oldPrice);
+    modalMeta.textContent=`Category: ${p.category} • Color: ${p.color} • Vendor: ${p.vendor}`;
+    modalDesc.textContent=p.description||'';
+    currentMedia=[...(p.images||[]),...(p.videos||[])];
+    currentMediaIndex=0;
+    renderMedia();
+    modal.style.display='flex';
+    modalAdd.onclick=()=>addToCart(p);
+  }
+
+  function renderMedia(){
+    mediaContainer.innerHTML='';
+    currentMedia.forEach((src,i)=>{
+      if(src.endsWith('.mp4')){
+        const vid=document.createElement('video');vid.src=src;vid.controls=true;
+        vid.className=i===currentMediaIndex?'active':'';mediaContainer.appendChild(vid);
+      }else{
+        const img=document.createElement('img');img.src=src;
+        img.className=i===currentMediaIndex?'active':'';mediaContainer.appendChild(img);
+      }
+    });
+  }
+  function prevMedia(){currentMediaIndex=(currentMediaIndex-1+currentMedia.length)%currentMedia.length;renderMedia();}
+  function nextMedia(){currentMediaIndex=(currentMediaIndex+1)%currentMedia.length;renderMedia();}
+
+  modalClose.onclick=()=>modal.style.display='none';
+  modal.addEventListener('click',e=>{if(e.target===modal)modal.style.display='none';});
+
+  filterAndRender();
+</script>
+
+</body>
+</html>

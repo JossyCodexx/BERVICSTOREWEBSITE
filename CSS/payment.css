@@ -1,0 +1,247 @@
+.navbar {
+  background: #333;
+  padding: 15px 0;
+  color: #fff;
+  position: fixed;      /* make it fixed */
+  top: 0;               /* stick to top */
+  left: 0;
+  width: 100%;          /* span full width */
+  z-index: 1000;       /* stay on top of content */
+}
+
+.nav-container {
+  width: 90%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+body {
+  margin: 0;
+  padding-top: 80px;  /* add top padding equal to navbar height so content doesn't hide under it */
+}
+
+
+.nav-container .logo img {
+  height: 80px;
+  width: 120%;
+}
+
+.nav-menu {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-menu li {
+  position: relative; 
+}
+
+.nav-menu a {
+  text-decoration: none;
+  color: #fff;
+  padding: 8px 12px;
+  transition: 0.3s;
+}
+
+.nav-menu a:hover,
+.nav-menu a.active {
+  background: #ff6600;
+  border-radius: 5px;
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown .dropbtn {
+  cursor: pointer;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background: #444;
+  top: 100%;
+  left: 0;
+  min-width: 160px;
+  border-radius: 5px;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.dropdown-content li {
+  display: block;
+}
+
+.dropdown-content a {
+  display: block;
+  padding: 10px 15px;
+  color: #fff;
+}
+
+.dropdown-content a:hover {
+  background: #ff6600;
+}
+
+
+.dropdown:hover .dropdown-content {
+  display: block;
+  opacity: 1;
+  visibility: visible;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  background: #f8f8f8;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 700px;
+  margin: 30px auto;
+  padding: 25px 20px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* Section Titles */
+h1, h2 {
+  color: #ff6600;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+/* Payment Option Boxes */
+.payment-option {
+  margin: 12px 0;
+  padding: 15px;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  background: #f9f9f9;
+  text-align: center;
+}
+
+.payment-option a, .payment-option button {
+  text-decoration: none;
+  color: white;
+  background: #ff6600;
+  padding: 10px 20px;
+  border-radius: 6px;
+  display: inline-block;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.payment-option a:hover, .payment-option button:hover {
+  opacity: 0.9;
+}
+
+/* Form Styles */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+label {
+  font-weight: bold;
+}
+
+input, textarea, button, select {
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+textarea { resize: vertical; }
+
+button {
+  background: #ff6600;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+button:hover { opacity: 0.9; }
+
+/* Styled Dropdown */
+select {
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 14px;
+
+  /* Remove this if present */
+  appearance: auto;
+  -webkit-appearance: auto;
+  -moz-appearance: auto;
+
+  /* Optional: add a custom arrow */
+  background-color: #fff;
+  background-image: url('data:image/svg+xml;utf8,<svg fill="%23333" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 16px;
+}
+
+
+
+/* Separate Sections */
+.payment-options {
+  margin-bottom: 40px;
+}
+
+.payment-confirmation {
+  margin-top: 40px;
+}
+
+
+
+.ppp{
+    margin-top: 100px;
+}
+
+
+.ppp2{
+    margin-left: 80px;
+    font-size: 20px;
+    color: blue;
+}

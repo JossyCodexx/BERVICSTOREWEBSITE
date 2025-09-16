@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - Shopper</title>
+  <link rel="stylesheet" href="./CSS/login.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    
+
+    .login-container {
+      background: #fff;
+      padding: 40px 30px;
+      border-radius: 10px;
+      width: 100%;
+      max-width: 400px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+      text-align: center;
+      margin-left: 400px;
+      margin-top: 50px;
+    }
+
+    .login-container h2 {
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .input-group {
+      margin-bottom: 20px;
+      text-align: left;
+    }
+
+    .input-group label {
+      display: block;
+      font-size: 14px;
+      margin-bottom: 5px;
+      color: #333;
+    }
+
+    .input-group input {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 15px;
+      outline: none;
+    }
+
+    .input-group input:focus {
+      border-color: #ff6b00;
+    }
+
+    .login-btn {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      background: #ff6b00;
+      color: #fff;
+      font-size: 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .login-btn:hover {
+      background: #e65c00;
+    }
+
+    .extra-links {
+      margin-top: 15px;
+      font-size: 14px;
+    }
+
+    .extra-links a {
+      color: #ff6b00;
+      text-decoration: none;
+      margin: 0 5px;
+    }
+
+    .extra-links a:hover {
+      text-decoration: underline;
+    }
+
+    .social-login {
+      margin-top: 20px;
+    }
+
+    .social-login p {
+      margin-bottom: 10px;
+      color: #333;
+    }
+
+    .social-icons a {
+      display: inline-block;
+      margin: 0 10px;
+      font-size: 20px;
+      color: #555;
+      border: 1px solid #ccc;
+      padding: 10px;
+      border-radius: 50%;
+      transition: 0.3s;
+    }
+
+    .social-icons a:hover {
+      color: #fff;
+      background: #ff6b00;
+      border-color: #ff6b00;
+    }
+  </style>
+</head>
+<body>
+
+  
+    <!-- ================= NAVBAR ================= -->
+<nav class="navbar">
+  <div class="nav-container">
+    <a href="index.html" class="logo">
+      <img src="./images/logo1.png" alt="">
+    </a>
+    <ul class="nav-menu">
+      <li><a href="shop.html">Shop</a></li>
+      <li><a href="men.html">Men</a></li>
+      <li><a href="women.html">Women</a></li>
+      <li><a href="kid.html">Kids</a></li>
+      <li><a href="aboutus.html" class="active">About Us</a></li>
+      <li><a href="contactus.html">Contact Us</a></li>
+
+      <!-- Dropdown Menu for Product -->
+      <li class="dropdown">
+        <a href="product.html" class="dropbtn">Product ▾</a>
+        <ul class="dropdown-content">
+          <li><a href="payment.html">Payment</a></li>
+          <li><a href="checkout.html">Checkout</a></li>
+          <li><a href="card-payment.html">Card-payment</a></li>
+          <li><a href="delivery.html">Delivery</a></li>
+          <li><a href="products.html">Products</a></li>
+        </ul>
+      </li>
+
+      <li><a href="login.html">Login</a></li>  
+       <li ><i class="fas fa-bars"></i></li>  
+    </ul>
+  </div>
+</nav>
+
+
+  <div class="login-container">
+    <h2>Login to Shopper</h2>
+    <form>
+      <div class="input-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" placeholder="Enter your email" required>
+      </div>
+
+      <div class="input-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" placeholder="Enter your password" required>
+      </div>
+
+      <button type="submit" class="login-btn">Login</button>
+
+      <div class="extra-links">
+        <a href="#">Forgot Password?</a> | 
+        <a href="register.html">Create Account</a>
+      </div>
+    </form>
+
+    <div class="social-login">
+      <p>Or login with</p>
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-google"></i></a>
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+  <!-- Footer -->
+<footer class="footer" style="background:#333;color:#fff;padding:40px 20px;font-family:Arial,sans-serif">
+  <div class="footer-content" style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:20px;max-width:1200px;margin:auto">
+    
+    <div class="footer-section" style="flex:1;min-width:220px">
+      <h3 style="margin-bottom:12px;color:#ff6600">BERVIC-STORE</h3>
+      <p>Your ultimate destination for kids’ fashion and more.</p>
+    </div>
+
+    <div class="footer-section" style="flex:1;min-width:220px">
+      <h4 style="margin-bottom:12px;color:#ff6600">Quick Links</h4>
+      <ul style="list-style:none;padding:0">
+        <li><a href="shop.html" style="color:#fff;text-decoration:none">Shop</a></li>
+        <li><a href="aboutus.html" style="color:#fff;text-decoration:none">About Us</a></li>
+        <li><a href="contactus.html" style="color:#fff;text-decoration:none">Contact Us</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-section" style="flex:1;min-width:220px">
+      <h4 style="margin-bottom:12px;color:#ff6600">Follow Us</h4>
+      <div class="social-links" style="display:flex;gap:10px;margin-bottom:12px">
+        <a href="#" style="color:#fff;font-size:18px"><i class="fab fa-facebook"></i></a>
+        <a href="#" style="color:#fff;font-size:18px"><i class="fab fa-twitter"></i></a>
+        <a href="#" style="color:#fff;font-size:18px"><i class="fab fa-instagram"></i></a>
+      </div>
+      <h4 style="margin-bottom:6px;color:#ff6600">Contact Us</h4>
+      <p style="margin:0">
+        WhatsApp: 
+        <a href="https://wa.me/2349012345678" target="_blank" style="color:#25D366;text-decoration:none;font-weight:bold">
+          +234 901 234 5678
+        </a>
+      </p>
+      <p style="margin:0">
+        Email: <a href="mailto:info@bervicstore.com" style="color:#fff;text-decoration:none">info@bervicstore.com</a>
+      </p>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom" style="text-align:center;margin-top:30px;border-top:1px solid #444;padding-top:12px;color:#aaa;font-size:14px">
+    <p>&copy; 2025 BERVIC-STORE E-commerce Store. All rights reserved.</p>
+  </div>
+</footer>
+
+</body>
+</html>

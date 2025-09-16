@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us - Shopper</title>
+  <link rel="stylesheet" href="./CSS/contactus.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <style>
+   
+    /* Hero */
+    .hero {
+      background: url('../images/contact-hero.jpg.jpg') no-repeat center center/cover;
+      height: 60vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      text-align: center;
+    }
+    .hero h1 {
+      font-size: 48px;
+      background: rgba(0,0,0,0.5);
+      padding: 10px 20px;
+      border-radius: 8px;
+    }
+
+    /* Contact Section */
+    .contact-section {
+      max-width: 1200px;
+      margin: 50px auto;
+      padding: 0 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 40px;
+    }
+    .contact-form {
+      background: #fff;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    .contact-form h2 {
+      margin-bottom: 20px;
+      color: #ff6b00;
+    }
+    .contact-form label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 15px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+    .contact-form button {
+      background: #ff6b00;
+      color: #fff;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background 0.3s;
+    }
+    .contact-form button:hover {
+      background: #e65c00;
+    }
+
+    /* Contact Info */
+    .contact-info {
+      background: #fff;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    .contact-info h2 {
+      margin-bottom: 20px;
+      color: #ff6b00;
+    }
+    .contact-info p {
+      margin-bottom: 15px;
+      font-size: 16px;
+      color: #555;
+    }
+    .contact-info i {
+      margin-right: 10px;
+      color: #ff6b00;
+    }
+    .social-links {
+      margin-top: 20px;
+    }
+    .social-links a {
+      display: inline-block;
+      margin-right: 10px;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: #333;
+      color: #fff;
+      line-height: 40px;
+      text-align: center;
+      transition: 0.3s;
+    }
+    .social-links a:hover {
+      background: #ff6b00;
+    }
+
+    /* Footer */
+    footer {
+      background: #333;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+
+    <!-- ================= NAVBAR ================= -->
+<nav class="navbar">
+  <div class="nav-container">
+    <a href="index.html" class="logo">
+      <img src="./images/logo1.png" alt="">
+    </a>
+    <ul class="nav-menu">
+      <li><a href="shop.html">Shop</a></li>
+      <li><a href="men.html">Men</a></li>
+      <li><a href="women.html">Women</a></li>
+      <li><a href="kid.html">Kids</a></li>
+      <li><a href="aboutus.html" class="active">About Us</a></li>
+      <li><a href="contactus.html">Contact Us</a></li>
+
+      <!-- Dropdown Menu for Product -->
+      <li class="dropdown">
+        <a href="product.html" class="dropbtn">Product ▾</a>
+        <ul class="dropdown-content">
+          <li><a href="payment.html">Payment</a></li>
+          <li><a href="checkout.html">Checkout</a></li>
+          <li><a href="card-payment.html">Card-payment</a></li>
+          <li><a href="delivery.html">Delivery</a></li>
+          <li><a href="products.html">Product</a></li>
+        </ul>
+      </li>
+
+      <li><a href="login.html">Login</a></li>  
+       <li ><i class="fas fa-bars"></i></li>  
+    </ul>
+  </div>
+</nav>
+
+
+  <!-- Hero -->
+  <section class="hero">
+    <h1>Contact Us</h1>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="contact-section">
+    <!-- Form -->
+    <div class="contact-form">
+      <h2>Send Us a Message</h2>
+      <form action="#" method="post">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" name="name" placeholder="Your name" required>
+
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" placeholder="Your email" required>
+
+        <label for="subject">Subject</label>
+        <input type="text" id="subject" name="subject" placeholder="Subject" required>
+
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="5" placeholder="Write your message..." required></textarea>
+
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+
+    <!-- Info -->
+    <div class="contact-info">
+      <h2>Get in Touch</h2>
+      <p><i class="fas fa-map-marker-alt"></i> 123 Shopper Street, Lagos, Nigeria</p>
+      <p><i class="fas fa-phone"></i> +234 901 234 5678</p>
+      <p><i class="fas fa-envelope"></i> support@shopper.com</p>
+
+      <div class="social-links">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+  </section>
+<!-- Footer -->
+<footer class="footer" style="background:#333;color:#fff;padding:40px 20px;font-family:Arial,sans-serif">
+  <div class="footer-content" style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:20px;max-width:1200px;margin:auto">
+    
+    <div class="footer-section" style="flex:1;min-width:220px">
+      <h3 style="margin-bottom:12px;color:#ff6600">BERVIC-STORE</h3>
+      <p>Your ultimate destination for Shop Men Women kids’ fashion and more.</p>
+    </div>
+
+    <div class="footer-section" style="flex:1;min-width:220px">
+      <h4 style="margin-bottom:12px;color:#ff6600">Quick Links</h4>
+      <ul style="list-style:none;padding:0">
+        <li><a href="shop.html" style="color:#fff;text-decoration:none">Shop</a></li>
+        <li><a href="aboutus.html" style="color:#fff;text-decoration:none">About Us</a></li>
+        <li><a href="contactus.html" style="color:#fff;text-decoration:none">Contact Us</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-section" style="flex:1;min-width:220px">
+      <h4 style="margin-bottom:12px;color:#ff6600">Follow Us</h4>
+      <div class="social-links" style="display:flex;gap:10px;margin-bottom:12px">
+        <a href="#" style="color:#fff;font-size:18px"><i class="fab fa-facebook"></i></a>
+        <a href="#" style="color:#fff;font-size:18px"><i class="fab fa-twitter"></i></a>
+        <a href="#" style="color:#fff;font-size:18px"><i class="fab fa-instagram"></i></a>
+      </div>
+      <h4 style="margin-bottom:6px;color:#ff6600">Contact Us</h4>
+      <p style="margin:0">
+        WhatsApp: 
+        <a href="https://wa.me/2349012345678" target="_blank" style="color:#25D366;text-decoration:none;font-weight:bold">
+          +234 901 234 5678
+        </a>
+      </p>
+      <p style="margin:0">
+        Email: <a href="mailto:info@bervicstore.com" style="color:#fff;text-decoration:none">info@bervicstore.com</a>
+      </p>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom" style="text-align:center;margin-top:30px;border-top:1px solid #444;padding-top:12px;color:#aaa;font-size:14px">
+    <p>&copy; 2025 BERVIC-STORE E-commerce Store. All rights reserved.</p>
+  </div>
+</footer>
+
+
+</body>
+</html>
